@@ -19,7 +19,7 @@ axios.defaults.baseURL = `https://backend-videogames-production-9185.up.railway.
 export const createVideogame = (payload) => {
     return async () => {
         try {
-            let postVideogame = await axios.post("http://localhost:3001/api/videogame", payload);
+            let postVideogame = await axios.post("https://backend-videogames-production-9185.up.railway.app/api/videogame", payload);
             return postVideogame;
         } catch (error) {
             console.log(error);
@@ -30,7 +30,7 @@ export const createVideogame = (payload) => {
 export const getVideogames = () => {
     return async (dispatch) => {
         try {
-            let getApi = await axios.get("http://localhost:3001/api/videogames");
+            let getApi = await axios.get("https://backend-videogames-production-9185.up.railway.app/api/videogames");
             dispatch({
                 type: GET_VIDEOGAMES,
                 payload: getApi.data
@@ -44,7 +44,7 @@ export const getVideogames = () => {
 export const getNameVideogame = (payload) => {
     return async (dispatch) => {
         try {
-            let info = await axios.get(`http://localhost:3001/api/videogames?name=${payload}`)
+            let info = await axios.get(`https://backend-videogames-production-9185.up.railway.app/api/videogames?name=${payload}`)
             dispatch({
                 type: GET_NAME_VIDEOGAME,
                 payload: info.data
@@ -58,7 +58,7 @@ export const getNameVideogame = (payload) => {
 export const getVideogameDetail = (id) => {
     return async (dispatch) => {
         try {
-            let getApi = await axios.get(`http://localhost:3001/api/videogame/${id}`);
+            let getApi = await axios.get(`https://backend-videogames-production-9185.up.railway.app/api/videogame/${id}`);
             dispatch({
                 type: GET_VIDEOGAME_DETAIL,
                 payload: getApi.data
@@ -85,7 +85,7 @@ export const cleanState = () => {
 export const getGenres = () => {
     return async (dispatch) => {
         try {
-            let genresApi = await axios.get(`http://localhost:3001/api/genres`);
+            let genresApi = await axios.get(`https://backend-videogames-production-9185.up.railway.app/api/genres`);
             dispatch({
                 type: GET_GENRES,
                 payload: genresApi.data
@@ -127,7 +127,7 @@ export function orderByRating(payload) {
 export const deleteVideogame = (id) => {
     return async (dispatch) => {
         try {
-            let deleted = await axios.delete(`http://localhost:3001/api/videogame/${id}`, id);
+            let deleted = await axios.delete(`https://backend-videogames-production-9185.up.railway.app/api/videogame/${id}`, id);
             dispatch({
                 type: DELETE_VIDEOGAME,
                 payload: deleted.data
